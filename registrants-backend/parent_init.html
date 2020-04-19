@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <meta charset='utf-8'>
+  </head>
+  <body>
+      <p>Hello <?= p_name ?>,</p>
+      <p>Thank you for registering for SUNIA 2020! We're so excited to meet your child this summer. My name is Michael DeMarco, our Registrar.</p>
+      <p>Now that you have filled out our registration form, there are just a few more steps in your registration:</p>
+      <ul>
+        <li>Select a <a href="https://www.sunia.ca/payment-type" target="_blank">payment option</a>, or submit a request for a deferral/financial aid (if you have not already done so).</li>
+        <li>Complete your child’s waivers at <a href="sunia.ca/waivers" target="_blank">sunia.ca/waivers</a>.</li>
+        <li>Confirm that the registration information you have provided below is correct and complete. (If something's wrong, feel free to reply to this email and I can correct it!)</li>
+      </ul>
+      <p>Here's the information we received. (It's a touch long, but please do check it all! It'll save us both time in the end.)</p>
+      <p><br><em>Student Information</em><br>
+         First name: <?= registrant.f_name ?><br> 
+         Preferred name: <?= registrant.pref_name ?><br>
+         Last name: <?= registrant.l_name ?><br>
+         Week: <?= registrant.week ?><br>
+         Bus: <?= registrant.bus ?><br>
+         Phone: <?= registrant.s_phone ?><br>
+         Email: <?= registrant.s_email ?><br>
+         Age: <?= registrant.age ?><br>
+         Gender: <?= registrant.gender ?><br>
+         Health Care: <?= registrant.health_num ?><br>
+         Address: <?= registrant.address ?><br>
+         City: <?= registrant.city ?><br>
+         Province: <?= registrant.province ?><br>
+         Country: <?= registrant.country ?><br>
+         Postal Code: <?= registrant.postal_code ?><br>
+         Health Concerns: <?= registrant.health_concerns ?><br>
+         Diet: <?= registrant.diet ?><br>
+         
+         <br><em>Parent Information</em><br>
+         Parent Name: <?= registrant.p_name ?><br>
+         Relation: <?= registrant.p_relation ?><br>
+         Email: <?= registrant.p_email ?><br>
+         Phone: <?= registrant.p_phone ?><br>
+         
+         <br><em>School Information</em><br>
+         School: <?= registrant.school ?><br>
+         School City: <?= registrant.school_city ?><br>
+         School Province: <?= registrant.school_province ?><br>
+         School Country: <?= registrant.school_country ?><br>
+         Grade: <?= registrant.grade ?><br>
+         
+         <br><em>First Emergency Contact</em><br>
+         Name: <?= registrant.prime_name ?><br>
+         Relation: <?= registrant.prime_relation ?><br>
+         Phone #1: <?= registrant.prime_phone ?><br>
+         Type: <?= registrant.prime_phone_type ?><br>
+         Phone #2: <?= registrant.prime_alt_phone ?><br>
+         Type: <?= registrant.prime_alt_phone_type ?><br>
+         
+         <br><em>Second Emergency Contac</em>t<br>
+         Name: <?= registrant.second_name ?><br>
+         Relation: <?= registrant.second_relation ?><br>
+         Phone #1: <?= registrant.second_phone ?><br>
+         Type: <?= registrant.second_phone_type ?><br>
+         Phone #2: <?= registrant.second_alt_phone ?><br>
+         Type: <?= registrant.second_alt_phone_type ?></p>
+         
+      <p>On the note of payment, I would like to take this opportunity to inform you of our refund policy. In the case that your child cannot attend SUNIA for any reason, and you wish to cancel their registration prior to July 1st 2020, $495 will be refunded to you (the total you have paid, less a $100 processing fee). However, cancellations received on or after July 1st will receive no refunds whatsoever.</p>
+      <p>I hope to speak to you about these items over the phone at some point in the next few days. In the meantime, please do not hesitate to reach out to me at registrar@sunia.ca with any questions or concerns you may have. Our staff looks forward to welcoming your child to SUNIA this August!</p>
+      <br><p>Speak soon,
+      <p><strong>Michael DeMarco</strong><br>Registrar<br>registrar@sunia.ca<br>(780) 680-9634<br><a href="https://sunia.ca">sunia.ca</a></p>
+      <img src="https://images.squarespace-cdn.com/content/571bc2cc40261d6b2e685496/1526336873602-2HJT129AA26UKZ4VGERE/logo%281%29.jpg?format=1000w&content-type=image%2Fpng" width="250" height="57" alt="SUNIA Logo"/>
+  </body>
+</html>
+
+      
+
+
