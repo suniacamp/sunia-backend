@@ -1,5 +1,9 @@
 # sunia's google apps script backend
- SUNIA's backend, built using Google Apps Script and CLASP.
+SUNIA's backend, built using TypeScript, Google Apps Script and [clasp](https://github.com/google/clasp).
+
+## project structure
+
+We're currently porting everything to TypeScript. The `\old` directory (aptly named) contains all deprecated JavaScript files. The `\src` directory contains all in-use files. There is currently only one branch `master` which is used directly in production. In future, we should add a development branch.
 
 ##  running on your machine
 
