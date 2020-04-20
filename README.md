@@ -1,5 +1,5 @@
-# sunia-backend
- SUNIA's backend. Using Google Apps Script and CLASP.
+# sunia's google apps script backend
+ SUNIA's backend, built using Google Apps Script and CLASP.
 
 ##  running on your machine
 
