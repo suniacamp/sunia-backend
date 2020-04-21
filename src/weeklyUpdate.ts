@@ -5,6 +5,8 @@
 // Doesn't check dates, but assigns boolean value instead, so if there's
 // a bug it may be run later and not miss any students
 
+export {}; // prevent global scope
+
 function weeklyUpdate() {
   Logger.log("Attempting to give weekly update...");
   let misc: string = "";
