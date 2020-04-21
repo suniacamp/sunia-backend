@@ -379,7 +379,7 @@ function generateSlackFormatting(registrant: student): string {
     Grade: ${registrant.grade}
     How did you hear about SUNIA? ${registrant.hearAboutUs}
     \n
-    My story is a lot like yours, only more interesting ‘cause it involves robots.
+    ${generateRandomBenderQuote()}
     Bender
   `;
 }
@@ -405,7 +405,7 @@ function sendEmails(registrants: student[]) {
 }
 
 function sendParentEmail(pEmail: string, registrant: student) {
-  if (pEmail == "") {
+  if (pEmail == "" || pEmail != "michaelfromyeg@gmail.com") {
     Logger.log("Parent email was empty for some reason... strange");
     return;
   } else {
@@ -417,6 +417,10 @@ function sendParentEmail(pEmail: string, registrant: student) {
       pTemplate.registrant = registrant;
 
       var phtmlBody = pTemplate.evaluate().getContent();
+
+      if (pEmail != "michaelfromyeg@gmail.com") {
+        return;
+      }
 
       MailApp.sendEmail({
         to: pEmail,
@@ -434,7 +438,7 @@ function sendParentEmail(pEmail: string, registrant: student) {
 }
 
 function sendStudentEmail(sEmail: string, registrant: student) {
-  if (sEmail == "") {
+  if (sEmail == "" || sEmail != "michaelfromyeg@gmail.com") {
     Logger.log("Student email was blank for reason... strange");
     return;
   } else {
@@ -442,10 +446,14 @@ function sendStudentEmail(sEmail: string, registrant: student) {
       let studentName: string = registrant.firstName;
       let sTemplate = HtmlService.createTemplateFromFile("html/student_intro");
 
-      sTemplate.s_name = studentName;
+      sTemplate.studentName = studentName;
       sTemplate.registrant = registrant;
 
       var shtmlBody = sTemplate.evaluate().getContent();
+
+      if (sEmail != "michaelfromyeg@gmail.com") {
+        return;
+      }
 
       //send mail to student
       MailApp.sendEmail({
