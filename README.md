@@ -22,6 +22,7 @@ We're currently porting everything to TypeScript. The `\old` directory (aptly na
 4. Run `clasp login` and `clasp create/clone` to get started. See the [documentation](https://github.com/google/clasp) for more information. (Of course when you run login, login to the registrar email!)
 
 
-### help!
+## help!
 
 - Have no idea what a 'clasp' is? Try this [Codelab](https://codelabs.developers.google.com/codelabs/clasp/#0) from Google--it takes a much more hands-on approach than this readme!
+- Everything have a squiggly red line underneath? Make sure you have [TypeScript](https://github.com/google/clasp/blob/master/docs/typescript.md) configured correctly.
