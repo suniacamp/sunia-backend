@@ -244,12 +244,12 @@ function sendWeeklyUpdate(message: string) {
     channel: "#testing",
     text: message,
   };
-  let reg_payload = {
+  let regPayload = {
     channel: "#registration",
     text: message,
   };
   try {
-    //sendToSlack(url, reg_payload);
+    // sendToSlack(url, regPayload);
     sendToSlack(url, testPayload); // remove in production
   } catch (error) {
     throw new Error("There was an issue sending the weekly update");
