@@ -153,10 +153,9 @@ function getData(): student[] {
     "Optional Did anyone in particular encourage you to register If so who"
   );
 
-  let students: student[];
-  for (let i = lastEmailed + 1; i < lastReg + 1; i++) {
+  let students: student[] = [];
+  for (let i = lastEmailed; i < lastReg; i++) {
     lastEmailedCell.setValue(lastEmailedCell.getValue() + 1);
-
     let student = {
       date: data[i][dateCol],
       firstName: data[i][fnCol],
@@ -279,67 +278,69 @@ function transferData(studentsToTransfer: student[]) {
     let studentToTransfer = studentsToTransfer[i];
     let rowToWriteTo = mrInput.getLastRow() + 1;
    
+    // Every column needs a "+1" because we're using getRange which indexes at 1
+
     // Student basics
-    mrInput.getRange(rowToWriteTo, dateCol).setValue(studentToTransfer.date);
-    mrInput.getRange(rowToWriteTo, fnCol).setValue(studentToTransfer.firstName);
-    mrInput.getRange(rowToWriteTo, prefCol).setValue(studentToTransfer.prefName);
-    mrInput.getRange(rowToWriteTo, lnCol).setValue(studentToTransfer.lastName);
+    mrInput.getRange(rowToWriteTo, dateCol+1).setValue(studentToTransfer.date);
+    mrInput.getRange(rowToWriteTo, fnCol+1).setValue(studentToTransfer.firstName);
+    mrInput.getRange(rowToWriteTo, prefCol+1).setValue(studentToTransfer.prefName);
+    mrInput.getRange(rowToWriteTo, lnCol+1).setValue(studentToTransfer.lastName);
 
     // SUNIA logistics
-    mrInput.getRange(rowToWriteTo, sessionCol).setValue(studentToTransfer.week);
-    mrInput.getRange(rowToWriteTo, busCol).setValue(studentToTransfer.bus);
-    mrInput.getRange(rowToWriteTo, hearCol).setValue(studentToTransfer.hearAboutUs);
+    mrInput.getRange(rowToWriteTo, sessionCol+1).setValue(studentToTransfer.week);
+    mrInput.getRange(rowToWriteTo, busCol+1).setValue(studentToTransfer.bus);
+    mrInput.getRange(rowToWriteTo, hearCol+1).setValue(studentToTransfer.hearAboutUs);
     
     // More student information
-    mrInput.getRange(rowToWriteTo, stuPhoneCol).setValue(studentToTransfer.studentPhone);
-    mrInput.getRange(rowToWriteTo, stuEmailCol).setValue(studentToTransfer.studentEmail);
-    mrInput.getRange(rowToWriteTo, stuAgeCol).setValue(studentToTransfer.age);
-    mrInput.getRange(rowToWriteTo, stuHCCol).setValue(studentToTransfer.healthNumber);
-    mrInput.getRange(rowToWriteTo, genderCol).setValue(studentToTransfer.gender);
+    mrInput.getRange(rowToWriteTo, stuPhoneCol+1).setValue(studentToTransfer.studentPhone);
+    mrInput.getRange(rowToWriteTo, stuEmailCol+1).setValue(studentToTransfer.studentEmail);
+    mrInput.getRange(rowToWriteTo, stuAgeCol+1).setValue(studentToTransfer.age);
+    mrInput.getRange(rowToWriteTo, stuHCCol+1).setValue(studentToTransfer.healthNumber);
+    mrInput.getRange(rowToWriteTo, genderCol+1).setValue(studentToTransfer.gender);
 
     // Location
-    mrInput.getRange(rowToWriteTo, addressCol).setValue(studentToTransfer.address);
-    mrInput.getRange(rowToWriteTo, cityCol).setValue(studentToTransfer.city);
-    mrInput.getRange(rowToWriteTo, provinceCol).setValue(studentToTransfer.province);
-    mrInput.getRange(rowToWriteTo, countryCol).setValue(studentToTransfer.country);
-    mrInput.getRange(rowToWriteTo, postalCol).setValue(studentToTransfer.postalCode);
+    mrInput.getRange(rowToWriteTo, addressCol+1).setValue(studentToTransfer.address);
+    mrInput.getRange(rowToWriteTo, cityCol+1).setValue(studentToTransfer.city);
+    mrInput.getRange(rowToWriteTo, provinceCol+1).setValue(studentToTransfer.province);
+    mrInput.getRange(rowToWriteTo, countryCol+1).setValue(studentToTransfer.country);
+    mrInput.getRange(rowToWriteTo, postalCol+1).setValue(studentToTransfer.postalCode);
 
     // Student health
-    mrInput.getRange(rowToWriteTo, healthCol).setValue(studentToTransfer.healthConcerns);
-    mrInput.getRange(rowToWriteTo, medCol).setValue(studentToTransfer.medications);
-    mrInput.getRange(rowToWriteTo, dietCol).setValue(studentToTransfer.diet);
+    mrInput.getRange(rowToWriteTo, healthCol+1).setValue(studentToTransfer.healthConcerns);
+    mrInput.getRange(rowToWriteTo, medCol+1).setValue(studentToTransfer.medications);
+    mrInput.getRange(rowToWriteTo, dietCol+1).setValue(studentToTransfer.diet);
 
     // Parent information
-    mrInput.getRange(rowToWriteTo, parentNameCol).setValue(studentToTransfer.parentName);
-    mrInput.getRange(rowToWriteTo, parentRelCol).setValue(studentToTransfer.parentRelationship);
-    mrInput.getRange(rowToWriteTo, parentEmailCol).setValue(studentToTransfer.parentEmail);
-    mrInput.getRange(rowToWriteTo, parentPhoneCol).setValue(studentToTransfer.parentPhone);
+    mrInput.getRange(rowToWriteTo, parentNameCol+1).setValue(studentToTransfer.parentName);
+    mrInput.getRange(rowToWriteTo, parentRelCol+1).setValue(studentToTransfer.parentRelationship);
+    mrInput.getRange(rowToWriteTo, parentEmailCol+1).setValue(studentToTransfer.parentEmail);
+    mrInput.getRange(rowToWriteTo, parentPhoneCol+1).setValue(studentToTransfer.parentPhone);
     
     // School
-    mrInput.getRange(rowToWriteTo, schoolNameCol).setValue(studentToTransfer.schoolName);
-    mrInput.getRange(rowToWriteTo, schoolCityCol).setValue(studentToTransfer.schoolCity);
-    mrInput.getRange(rowToWriteTo, schoolProvCol).setValue(studentToTransfer.schoolProvince);
-    mrInput.getRange(rowToWriteTo, schoolCountryCol).setValue(studentToTransfer.schoolCountry);
-    mrInput.getRange(rowToWriteTo, gradeCol).setValue(studentToTransfer.grade);
+    mrInput.getRange(rowToWriteTo, schoolNameCol+1).setValue(studentToTransfer.schoolName);
+    mrInput.getRange(rowToWriteTo, schoolCityCol+1).setValue(studentToTransfer.schoolCity);
+    mrInput.getRange(rowToWriteTo, schoolProvCol+1).setValue(studentToTransfer.schoolProvince);
+    mrInput.getRange(rowToWriteTo, schoolCountryCol+1).setValue(studentToTransfer.schoolCountry);
+    mrInput.getRange(rowToWriteTo, gradeCol+1).setValue(studentToTransfer.grade);
     
     // First emergency contact
-    mrInput.getRange(rowToWriteTo, primeNameCol).setValue(studentToTransfer.ecName);
-    mrInput.getRange(rowToWriteTo, primeRelCol).setValue(studentToTransfer.ecRelationship);
-    mrInput.getRange(rowToWriteTo, primePhone1Col).setValue(studentToTransfer.ecPhone);
-    mrInput.getRange(rowToWriteTo, primePhone1TypeCol).setValue(studentToTransfer.ecPhoneType);
-    mrInput.getRange(rowToWriteTo, primePhone2Col).setValue(studentToTransfer.ecAltPhone);
-    mrInput.getRange(rowToWriteTo, primePhone2TypeCol).setValue(studentToTransfer.ecAltPhoneType);
+    mrInput.getRange(rowToWriteTo, primeNameCol+1).setValue(studentToTransfer.ecName);
+    mrInput.getRange(rowToWriteTo, primeRelCol+1).setValue(studentToTransfer.ecRelationship);
+    mrInput.getRange(rowToWriteTo, primePhone1Col+1).setValue(studentToTransfer.ecPhone);
+    mrInput.getRange(rowToWriteTo, primePhone1TypeCol+1).setValue(studentToTransfer.ecPhoneType);
+    mrInput.getRange(rowToWriteTo, primePhone2Col+1).setValue(studentToTransfer.ecAltPhone);
+    mrInput.getRange(rowToWriteTo, primePhone2TypeCol+1).setValue(studentToTransfer.ecAltPhoneType);
     
     // Second emergency contact
-    mrInput.getRange(rowToWriteTo, secNameCol).setValue(studentToTransfer.ec2Name);
-    mrInput.getRange(rowToWriteTo, secRelCol).setValue(studentToTransfer.ec2Relationship);
-    mrInput.getRange(rowToWriteTo, secPhone1Col).setValue(studentToTransfer.ec2Phone);
-    mrInput.getRange(rowToWriteTo, secPhone1TypeCol).setValue(studentToTransfer.ec2PhoneType);
-    mrInput.getRange(rowToWriteTo, secPhone2Col).setValue(studentToTransfer.ec2AltPhone);
-    mrInput.getRange(rowToWriteTo, secPhone2TypeCol).setValue(studentToTransfer.ec2AltPhoneType);
+    mrInput.getRange(rowToWriteTo, secNameCol+1).setValue(studentToTransfer.ec2Name);
+    mrInput.getRange(rowToWriteTo, secRelCol+1).setValue(studentToTransfer.ec2Relationship);
+    mrInput.getRange(rowToWriteTo, secPhone1Col+1).setValue(studentToTransfer.ec2Phone);
+    mrInput.getRange(rowToWriteTo, secPhone1TypeCol+1).setValue(studentToTransfer.ec2PhoneType);
+    mrInput.getRange(rowToWriteTo, secPhone2Col+1).setValue(studentToTransfer.ec2AltPhone);
+    mrInput.getRange(rowToWriteTo, secPhone2TypeCol+1).setValue(studentToTransfer.ec2AltPhoneType);
     
     // Shoutout
-    mrInput.getRange(rowToWriteTo, shoutoutCol).setValue(studentToTransfer.shoutout);
+    mrInput.getRange(rowToWriteTo, shoutoutCol+1).setValue(studentToTransfer.shoutout);
   }
 }
 
