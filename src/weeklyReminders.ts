@@ -63,6 +63,7 @@ function sendReminderEmail(pEmail: string) {
     return;
   }
 
+  // TODO: remove in production
   if (pEmail != "michaelfromyeg@gmail.com") {
     Logger.log("Tried sending to a non-testing email.");
     return;
