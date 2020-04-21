@@ -206,7 +206,7 @@ function getData(): student[] {
   return students;
 }
 
-function transferData(registrants: student[]) {
+function transferData(studentsToTransfer: student[]) {
   // Get master reg sheet
   let masterRegString = PropertiesService.getScriptProperties().getProperty(
     "masterRegSource"
@@ -275,70 +275,71 @@ function transferData(registrants: student[]) {
   // Shoutout
   const shoutoutCol = data[0].indexOf("SHOUTOUT");
 
-  for (let registrant of registrants) {
+  for (let i = 0; i < studentsToTransfer.length; i++) {
+    let studentToTransfer = studentsToTransfer[i];
     let rowToWriteTo = mrInput.getLastRow() + 1;
    
     // Student basics
-    mrInput.getRange(rowToWriteTo, dateCol).setValue(registrant.date);
-    mrInput.getRange(rowToWriteTo, fnCol).setValue(registrant.firstName);
-    mrInput.getRange(rowToWriteTo, prefCol).setValue(registrant.prefName);
-    mrInput.getRange(rowToWriteTo, lnCol).setValue(registrant.lastName);
+    mrInput.getRange(rowToWriteTo, dateCol).setValue(studentToTransfer.date);
+    mrInput.getRange(rowToWriteTo, fnCol).setValue(studentToTransfer.firstName);
+    mrInput.getRange(rowToWriteTo, prefCol).setValue(studentToTransfer.prefName);
+    mrInput.getRange(rowToWriteTo, lnCol).setValue(studentToTransfer.lastName);
 
     // SUNIA logistics
-    mrInput.getRange(rowToWriteTo, sessionCol).setValue(registrant.week);
-    mrInput.getRange(rowToWriteTo, busCol).setValue(registrant.bus);
-    mrInput.getRange(rowToWriteTo, hearCol).setValue(registrant.hearAboutUs);
+    mrInput.getRange(rowToWriteTo, sessionCol).setValue(studentToTransfer.week);
+    mrInput.getRange(rowToWriteTo, busCol).setValue(studentToTransfer.bus);
+    mrInput.getRange(rowToWriteTo, hearCol).setValue(studentToTransfer.hearAboutUs);
     
     // More student information
-    mrInput.getRange(rowToWriteTo, stuPhoneCol).setValue(registrant.studentPhone);
-    mrInput.getRange(rowToWriteTo, stuEmailCol).setValue(registrant.studentEmail);
-    mrInput.getRange(rowToWriteTo, stuAgeCol).setValue(registrant.age);
-    mrInput.getRange(rowToWriteTo, stuHCCol).setValue(registrant.healthNumber);
-    mrInput.getRange(rowToWriteTo, genderCol).setValue(registrant.gender);
+    mrInput.getRange(rowToWriteTo, stuPhoneCol).setValue(studentToTransfer.studentPhone);
+    mrInput.getRange(rowToWriteTo, stuEmailCol).setValue(studentToTransfer.studentEmail);
+    mrInput.getRange(rowToWriteTo, stuAgeCol).setValue(studentToTransfer.age);
+    mrInput.getRange(rowToWriteTo, stuHCCol).setValue(studentToTransfer.healthNumber);
+    mrInput.getRange(rowToWriteTo, genderCol).setValue(studentToTransfer.gender);
 
     // Location
-    mrInput.getRange(rowToWriteTo, addressCol).setValue(registrant.address);
-    mrInput.getRange(rowToWriteTo, cityCol).setValue(registrant.city);
-    mrInput.getRange(rowToWriteTo, provinceCol).setValue(registrant.province);
-    mrInput.getRange(rowToWriteTo, countryCol).setValue(registrant.country);
-    mrInput.getRange(rowToWriteTo, postalCol).setValue(registrant.postalCode);
+    mrInput.getRange(rowToWriteTo, addressCol).setValue(studentToTransfer.address);
+    mrInput.getRange(rowToWriteTo, cityCol).setValue(studentToTransfer.city);
+    mrInput.getRange(rowToWriteTo, provinceCol).setValue(studentToTransfer.province);
+    mrInput.getRange(rowToWriteTo, countryCol).setValue(studentToTransfer.country);
+    mrInput.getRange(rowToWriteTo, postalCol).setValue(studentToTransfer.postalCode);
 
     // Student health
-    mrInput.getRange(rowToWriteTo, healthCol).setValue(registrant.healthConcerns);
-    mrInput.getRange(rowToWriteTo, medCol).setValue(registrant.medications);
-    mrInput.getRange(rowToWriteTo, dietCol).setValue(registrant.diet);
+    mrInput.getRange(rowToWriteTo, healthCol).setValue(studentToTransfer.healthConcerns);
+    mrInput.getRange(rowToWriteTo, medCol).setValue(studentToTransfer.medications);
+    mrInput.getRange(rowToWriteTo, dietCol).setValue(studentToTransfer.diet);
 
     // Parent information
-    mrInput.getRange(rowToWriteTo, parentNameCol).setValue(registrant.parentName);
-    mrInput.getRange(rowToWriteTo, parentRelCol).setValue(registrant.parentRelationship);
-    mrInput.getRange(rowToWriteTo, parentEmailCol).setValue(registrant.parentEmail);
-    mrInput.getRange(rowToWriteTo, parentPhoneCol).setValue(registrant.parentPhone);
+    mrInput.getRange(rowToWriteTo, parentNameCol).setValue(studentToTransfer.parentName);
+    mrInput.getRange(rowToWriteTo, parentRelCol).setValue(studentToTransfer.parentRelationship);
+    mrInput.getRange(rowToWriteTo, parentEmailCol).setValue(studentToTransfer.parentEmail);
+    mrInput.getRange(rowToWriteTo, parentPhoneCol).setValue(studentToTransfer.parentPhone);
     
     // School
-    mrInput.getRange(rowToWriteTo, schoolNameCol).setValue(registrant.schoolName);
-    mrInput.getRange(rowToWriteTo, schoolCityCol).setValue(registrant.schoolCity);
-    mrInput.getRange(rowToWriteTo, schoolProvCol).setValue(registrant.schoolProvince);
-    mrInput.getRange(rowToWriteTo, schoolCountryCol).setValue(registrant.schoolCountry);
-    mrInput.getRange(rowToWriteTo, gradeCol).setValue(registrant.grade);
+    mrInput.getRange(rowToWriteTo, schoolNameCol).setValue(studentToTransfer.schoolName);
+    mrInput.getRange(rowToWriteTo, schoolCityCol).setValue(studentToTransfer.schoolCity);
+    mrInput.getRange(rowToWriteTo, schoolProvCol).setValue(studentToTransfer.schoolProvince);
+    mrInput.getRange(rowToWriteTo, schoolCountryCol).setValue(studentToTransfer.schoolCountry);
+    mrInput.getRange(rowToWriteTo, gradeCol).setValue(studentToTransfer.grade);
     
     // First emergency contact
-    mrInput.getRange(rowToWriteTo, primeNameCol).setValue(registrant.ecName);
-    mrInput.getRange(rowToWriteTo, primeRelCol).setValue(registrant.ecRelationship);
-    mrInput.getRange(rowToWriteTo, primePhone1Col).setValue(registrant.ecPhone);
-    mrInput.getRange(rowToWriteTo, primePhone1TypeCol).setValue(registrant.ecPhoneType);
-    mrInput.getRange(rowToWriteTo, primePhone2Col).setValue(registrant.ecAltPhone);
-    mrInput.getRange(rowToWriteTo, primePhone2TypeCol).setValue(registrant.ecAltPhoneType);
+    mrInput.getRange(rowToWriteTo, primeNameCol).setValue(studentToTransfer.ecName);
+    mrInput.getRange(rowToWriteTo, primeRelCol).setValue(studentToTransfer.ecRelationship);
+    mrInput.getRange(rowToWriteTo, primePhone1Col).setValue(studentToTransfer.ecPhone);
+    mrInput.getRange(rowToWriteTo, primePhone1TypeCol).setValue(studentToTransfer.ecPhoneType);
+    mrInput.getRange(rowToWriteTo, primePhone2Col).setValue(studentToTransfer.ecAltPhone);
+    mrInput.getRange(rowToWriteTo, primePhone2TypeCol).setValue(studentToTransfer.ecAltPhoneType);
     
     // Second emergency contact
-    mrInput.getRange(rowToWriteTo, secNameCol).setValue(registrant.ec2Name);
-    mrInput.getRange(rowToWriteTo, secRelCol).setValue(registrant.ec2Relationship);
-    mrInput.getRange(rowToWriteTo, secPhone1Col).setValue(registrant.ec2Phone);
-    mrInput.getRange(rowToWriteTo, secPhone1TypeCol).setValue(registrant.ec2PhoneType);
-    mrInput.getRange(rowToWriteTo, secPhone2Col).setValue(registrant.ec2AltPhone);
-    mrInput.getRange(rowToWriteTo, secPhone2TypeCol).setValue(registrant.ec2AltPhoneType);
+    mrInput.getRange(rowToWriteTo, secNameCol).setValue(studentToTransfer.ec2Name);
+    mrInput.getRange(rowToWriteTo, secRelCol).setValue(studentToTransfer.ec2Relationship);
+    mrInput.getRange(rowToWriteTo, secPhone1Col).setValue(studentToTransfer.ec2Phone);
+    mrInput.getRange(rowToWriteTo, secPhone1TypeCol).setValue(studentToTransfer.ec2PhoneType);
+    mrInput.getRange(rowToWriteTo, secPhone2Col).setValue(studentToTransfer.ec2AltPhone);
+    mrInput.getRange(rowToWriteTo, secPhone2TypeCol).setValue(studentToTransfer.ec2AltPhoneType);
     
     // Shoutout
-    mrInput.getRange(rowToWriteTo, shoutoutCol).setValue(registrant.shoutout);
+    mrInput.getRange(rowToWriteTo, shoutoutCol).setValue(studentToTransfer.shoutout);
   }
 }
 
@@ -346,7 +347,8 @@ function postToSlack(registrants: student[]) {
   let url = PropertiesService.getScriptProperties().getProperty(
     "slackTestingWebhook"
   );
-  for (let registrant of registrants) {
+  for (let i = 0; i < registrants.length; i++) {
+    let registrant = registrants[i];
     let message: string = generateSlackFormatting(registrant);
     let testPayload = {
       channel: "#testing",
@@ -366,18 +368,18 @@ function postToSlack(registrants: student[]) {
 }
 
 // Generates Slack formatting for a registrant
-function generateSlackFormatting(registrant: student): string {
+function generateSlackFormatting(individual: student): string {
   return `
     100101010 (Another registrant has arrived.)
     \n
-    Name: ${registrant.firstName}
-    Week: ${registrant.week}
-    Gender: ${registrant.gender}
-    City: ${registrant.city}
-    Province: ${registrant.province}
-    School: ${registrant.schoolName}
-    Grade: ${registrant.grade}
-    How did you hear about SUNIA? ${registrant.hearAboutUs}
+    Name: ${individual.firstName}
+    Week: ${individual.week}
+    Gender: ${individual.gender}
+    City: ${individual.city}
+    Province: ${individual.province}
+    School: ${individual.schoolName}
+    Grade: ${individual.grade}
+    How did you hear about SUNIA? ${individual.hearAboutUs}
     \n
     ${generateRandomBenderQuote()}
     Bender
@@ -395,7 +397,8 @@ function sendToSlack(url: string, payload: object) {
 }
 
 function sendEmails(registrants: student[]) {
-  for (let registrant of registrants) {
+  for (let i = 0; i < registrants.length; i++) {
+    let registrant = registrants[i];
     let pEmail: string = registrant.parentEmail;
     let sEmail: string = registrant.studentEmail;
 
