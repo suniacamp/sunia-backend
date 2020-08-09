@@ -4,6 +4,10 @@ SUNIA's backend, built using TypeScript and Google Apps Script through [clasp](h
 
 [![clasp](https://img.shields.io/badge/built%20with-clasp-4285f4.svg)](https://github.com/google/clasp)
 
+<p align="center">
+    <img src="./images/sunia-backend-01.png" width="640px" height="320px" alt="Header" />
+</p>
+
 ## About
 
 SUNIA is a nonprofit summer program based in the Alberta Rockies. As a nonprofit, we looked to develop a *free* backend infrastructure to help us manage, contact, and organize our 150+ registrants annually. The code in this repository powers that.
