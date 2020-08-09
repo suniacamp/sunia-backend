@@ -94,7 +94,9 @@ Head to [the documentation](https://developers.google.com/apps-script/guides/cla
 
 ## Development
 
-Make any local changes.
+Make any local changes and run `clasp push`. It's as easy as that.
+
+If you want to have changes "auto save", you can run `clasp push --watch`.
 
 ## FAQ
 
