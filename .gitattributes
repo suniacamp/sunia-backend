@@ -1,2 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+# Don't attempt to merge
+package-lock.json -diff

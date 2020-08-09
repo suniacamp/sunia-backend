@@ -1,4 +1,4 @@
-// IF YOU ARE READING HTIS IN ON THE WEB EDITOR, DO NOT EDIT DIRECTLY, EDIT THE TYPESCRIPT SOURCE
+// IF YOU ARE READING THIS IN ON THE WEB EDITOR, DO NOT EDIT DIRECTLY, EDIT THE TYPESCRIPT SOURCE
 // visit https://github.com/suniacamp to see the repositories
 
 export {}; // prevent global scope
@@ -56,7 +56,7 @@ function transferPaypal() {
     let payerName = paypalMain.getRange(i,4).getValue();
     inputTab.getRange(openRow, 4).setValue(payerName);
     
-    //No miscellanious data to add, set to n/a
+    //No miscellaneous data to add, set to n/a
     inputTab.getRange(openRow, 5).setValue("n/a");
     
     openRow++;

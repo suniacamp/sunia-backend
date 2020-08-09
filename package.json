@@ -1,0 +1,29 @@
+{
+  "name": "sunia-backend",
+  "version": "1.0.0",
+  "description": "A backend for handling registrants for SUNIA, a nonprofit summer program.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suniacamp/sunia-backend.git"
+  },
+  "keywords": [
+    "clasp",
+    "google",
+    "apps",
+    "script",
+    "sunia"
+  ],
+  "author": "Michael DeMarco <michael@sunia.ca>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/suniacamp/sunia-backend/issues"
+  },
+  "homepage": "https://github.com/suniacamp/sunia-backend#readme",
+  "dependencies": {
+    "@types/google-apps-script": "^1.0.14"
+  }
+}
