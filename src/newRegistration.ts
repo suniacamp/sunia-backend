@@ -1,4 +1,4 @@
-// IF YOU ARE READING HTIS IN ON THE WEB EDITOR, DO NOT EDIT DIRECTLY, EDIT THE TYPESCRIPT SOURCE
+// IF YOU ARE READING THIS IN ON THE WEB EDITOR, DO NOT EDIT DIRECTLY, EDIT THE TYPESCRIPT SOURCE
 // visit https://github.com/suniacamp to see the repositories
 
 // Emails registrant and their parent, updates Slack, adds to database
